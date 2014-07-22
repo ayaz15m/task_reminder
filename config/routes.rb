@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get 'tasks/index'
 
   root to: "tasks#index"
 
   delete "tasks/:id" => "tasks#destroy", as: :task
+
+  # get "/tasks" => "tasks#create", as: :tasks
+  post "/" => "tasks#create", as: :tasks
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

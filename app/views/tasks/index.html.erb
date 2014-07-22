@@ -1,25 +1,64 @@
+<!-- Button trigger modal -->
+<br><br>
+<center>
+<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+  Add Task
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Task</h4>
+      </div>
+      <div class="modal-body">
+          <%= form_tag url: :tasks do %>
+            <%= label_tag :title %>
+            <%= text_field_tag :title %><br><br>
+
+            <%= label_tag :due %>
+            <%= select_date(date = Date.current) %><br><br>
+
+
+            <%= submit_tag "Add Task", class: "btn btn-large btn-primary" %>
+          <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+</center>
+
 <div class="col-md-4 text-center">
-<h1> Task </h1>
+  <h1> Task </h1>
 </div>
+
 <div class="col-md-4 text-center">
-<h1> Due </h1>
+  <h1> Due </h1>
 </div>
+
 <div class="col-md-4 text-center">
   <h1 style="color:white;"> Done </h1><br><br>
 </div>
 
 <ul class="items list-unstyled">
-<% @current.each do |task| %>
-  <li class="<%= 'done' %>" data-id="<%= task.id%>">
+  <% @current.each do |task| %>
+    <li class="<%= 'done' %>" data-id="<%= task.id%>">
       <div class="col-md-4 text-center">
-      <p><%= task.title %></p>
+        <p><%= task.title %></p>
       </div>
+
       <div class="col-md-4 text-center">
-      <p><%= task.due.strftime "%m/%d/%Y" %></p>
+        <p><%= task.due.strftime "%m/%d/%Y" %></p>
       </div>
+
       <div class="col-md-4 text-center">
         <%= link_to "Done", task ,method: :delete, remote: true, class: "btn btn-primary", "data-confirm"=>"Are you sure?" %><br><br>
       </div>
     </li>
-<% end %>
+  <% end %>
 </ul>
