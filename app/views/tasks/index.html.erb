@@ -1,0 +1,25 @@
+<div class="col-md-4 text-center">
+<h1> Task </h1>
+</div>
+<div class="col-md-4 text-center">
+<h1> Due </h1>
+</div>
+<div class="col-md-4 text-center">
+  <h1 style="color:white;"> Done </h1><br><br>
+</div>
+
+<ul class="items list-unstyled">
+<% @current.each do |task| %>
+  <li class="<%= 'done' %>" data-id="<%= task.id%>">
+      <div class="col-md-4 text-center">
+      <p><%= task.title %></p>
+      </div>
+      <div class="col-md-4 text-center">
+      <p><%= task.due.strftime "%m/%d/%Y" %></p>
+      </div>
+      <div class="col-md-4 text-center">
+        <%= link_to "Done", task ,method: :delete, remote: true, class: "btn btn-primary", "data-confirm"=>"Are you sure?" %><br><br>
+      </div>
+    </li>
+<% end %>
+</ul>
