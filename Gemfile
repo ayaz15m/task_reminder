@@ -38,5 +38,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development, :test do
+  gem 'pry'
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
+end
 
-gem 'pry'
+group :production do
+  gem 'rails_12factor'
+end
+
+gem 'devise'
+gem 'simple_form', "3.1.0.rc2"
