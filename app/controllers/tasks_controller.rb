@@ -24,3 +24,5 @@ class TasksController < ApplicationController
       end
   end
 end
+
+####js for adding task and error for empty entries
