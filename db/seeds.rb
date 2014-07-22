@@ -12,5 +12,4 @@ Tasks.destroy_all
 Tasks.create title: "Blackjack", due: "2014-07-14"
 Tasks.create title: "Concert", due: "2014-07-21"
 Tasks.create title: "Tweeter", due: "2014-07-12"
-Tasks.create title: "Memer", due: "2014-07-22"
 Tasks.create title: "Hw Tracker", due: "2014-08-30"
